@@ -1,0 +1,27 @@
+{
+  "name": "@dschau/graphql-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Dustin Schau <dustinschau@gmail.com> (https://dustinschau.com)",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "seed": "node scripts/seed-backend.js",
+    "prestart": "npm run build",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "express": "~4.16.3",
+    "lokijs": "~1.5.3",
+    "yup": "~0.24.1"
+  },
+  "devDependencies": {
+    "babel-cli": "~6.26.0",
+    "babel-core": "~6.26.3",
+    "babel-preset-env": "~1.6.1",
+    "babel-preset-stage-2": "~6.24.1",
+    "faker": "~4.1.0",
+    "fs-extra": "~5.0.0"
+  }
+}
