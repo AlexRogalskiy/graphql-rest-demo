@@ -2,6 +2,5 @@ node_modules
 
 dist
 /*.db
-/users.json
-
-
+/*.json
+!/package.json

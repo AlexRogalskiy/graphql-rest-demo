@@ -3,12 +3,12 @@ import { Router } from 'express';
 import { getAll } from './get-all';
 import { get } from './get';
 
-export default function usersHandler() {
-  const router = new Router();
+export default function comemntsHandler() {
+  const router = new Router({ mergeParams: true });
 
   router
     .get('/', getAll)
-    .get('/:id', get);
+    .get('/:commentId', get);
 
   return router;
 }

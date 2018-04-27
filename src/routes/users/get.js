@@ -1,9 +1,9 @@
-import { users as usersDb } from '../../database';
+import { users } from '../../database';
 
 export function get(req, res) {
   const { id } = req.params;
 
-  const [user] = usersDb.find({ id: { '$eq': id }});
+  const [user] = users.find({ id: { '$eq': id }});
 
   if (!user) {
     return res.status(409).json({

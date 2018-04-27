@@ -1,7 +1,7 @@
-import { users } from '../../database';
+import { posts } from '../../database';
 
 export function getAll(req, res) {
   return res.json({
-    users: users.find()
+    posts: posts.find()
   });
 }

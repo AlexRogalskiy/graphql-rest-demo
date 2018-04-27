@@ -1,10 +1,10 @@
-import { users as usersDb } from '../../database';
+import { posts } from '../../database';
 
 export function update(req, res) {
   const { id } = req.params;
-  const [user] = usersDb.where(user => user.id === id);
+  const [post] = posts.find({ id: { '$eq': id }});
 
-  if (!user) {
+  if (!post) {
     return res.status(409).json({
       error: `Could not find ${id}`
     });
