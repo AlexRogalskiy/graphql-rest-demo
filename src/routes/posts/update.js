@@ -1,8 +1,9 @@
-import { posts } from '../../database';
+import { database } from '../../database';
 
 export function update(req, res) {
+  const posts = database.getCollection('posts');
   const { id } = req.params;
-  const [post] = posts.find({ id: { '$eq': id }});
+  let [post] = posts.find({ id: { '$eq': id }});
 
   if (!post) {
     return res.status(409).json({
@@ -11,7 +12,10 @@ export function update(req, res) {
   }
 
   const { body } = req;
-  console.log(body);
+  
+  post = Object.assign(post, body);
 
-  return res.json({});
+  posts.update(post);
+
+  return res.json(post);
 }

@@ -1,7 +1,9 @@
-import { users } from '../../database';
+import { database } from '../../database';
 
 export function get(req, res) {
   const { id } = req.params;
+
+  const users = database.getCollection('users');
 
   const [user] = users.find({ id: { '$eq': id }});
 

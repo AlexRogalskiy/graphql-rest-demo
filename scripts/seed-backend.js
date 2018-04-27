@@ -10,7 +10,6 @@ const posts = new Array(100).fill(undefined)
       title: faker.lorem.sentence(),
       user: faker.random.uuid(),
       id: faker.random.uuid(),
-      email: faker.internet.email(),
       published: faker.date.past(),
       body: faker.lorem.paragraphs(),
     });
@@ -21,7 +20,8 @@ const posts = new Array(100).fill(undefined)
 const users = posts.slice(0).map(({ user }) => ({
   id: user,
   first: faker.name.firstName(),
-  last: faker.name.lastName()
+  last: faker.name.lastName(),
+  email: faker.internet.email(),
 }));
 
 const postComments = posts.slice(0).reduce((merged, { id }) => {

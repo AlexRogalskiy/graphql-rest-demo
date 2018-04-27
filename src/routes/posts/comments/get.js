@@ -1,7 +1,9 @@
-import { comments } from '../../../database';
+import { database } from '../../../database';
 
 export function get(req, res) {
   const { commentId, id } = req.params;
+
+  const comments = database.getCollection('comments');
 
   const [comment] = comments.find({ parent: { '$eq': id }, id: { '$eq': commentId }});
 

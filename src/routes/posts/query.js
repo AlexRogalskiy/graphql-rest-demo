@@ -1,6 +1,7 @@
-import { posts } from '../../database';
+import { database } from '../../database';
 
 export function query(req, res) {
+  const posts = database.getCollection('posts');
   const { query: reqQuery } = req.params;
 
   const allPosts = posts.where(obj => {

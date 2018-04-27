@@ -1,6 +1,7 @@
-import { posts } from '../../database';
+import { database } from '../../database';
 
 export function get(req, res) {
+  const posts = database.getCollection('posts');
   const { id } = req.params;
 
   const [post] = posts.find({ id: { '$eq': id }});
