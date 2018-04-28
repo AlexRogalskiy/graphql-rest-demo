@@ -19,8 +19,10 @@ const posts = new Array(100).fill(undefined)
 
 const users = posts.slice(0).map(({ author }) => ({
   id: author,
-  first: faker.name.firstName(),
-  last: faker.name.lastName(),
+  name: {
+    first: faker.name.firstName(),
+    last: faker.name.lastName(),
+  },
   email: faker.internet.email(),
 }));
 
