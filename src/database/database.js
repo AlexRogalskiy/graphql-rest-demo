@@ -14,9 +14,8 @@ function init() {
       let collection = database.getCollection(type);
 
       if (collection === null) {
-        console.log('it is null my dude');
         const seed = require(path.resolve(`./${type}.json`));
-        collection = db.addCollection(type, { indices });
+        collection = database.addCollection(type, { indices });
 
         seed.forEach(user => {
           collection.insert(user);
