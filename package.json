@@ -6,9 +6,12 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src --out-dir dist",
+    "prenow-build": "npm run seed",
+    "now-build": "npm run build",
     "seed": "node scripts/seed-backend.js",
     "prestart": "npm run build",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "now-start": "node dist/index.js"
   },
   "dependencies": {
     "axios": "~0.18.0",
