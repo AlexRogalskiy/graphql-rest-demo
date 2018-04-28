@@ -1,7 +1,9 @@
 import Loki from 'lokijs';
 import path from 'path';
 
-export const database = new Loki('bigbusiness.db', {
+const PROD = process.env.NODE_ENV === 'production';
+
+export const database = new Loki(PROD ? '/tmp/bigbusiness.db' : 'bigbusiness.db', {
   autoload: true,
   autoloadCallback: init,
   autosave: true,
