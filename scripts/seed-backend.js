@@ -8,7 +8,7 @@ const posts = new Array(100).fill(undefined)
     const last = faker.name.lastName();
     merged.push({
       title: faker.lorem.sentence(),
-      user: faker.random.uuid(),
+      author: faker.random.uuid(),
       id: faker.random.uuid(),
       published: faker.date.past(),
       body: faker.lorem.paragraphs(),
@@ -17,8 +17,8 @@ const posts = new Array(100).fill(undefined)
     return merged;
   }, []);
 
-const users = posts.slice(0).map(({ user }) => ({
-  id: user,
+const users = posts.slice(0).map(({ author }) => ({
+  id: author,
   first: faker.name.firstName(),
   last: faker.name.lastName(),
   email: faker.internet.email(),

@@ -5,13 +5,13 @@ import { POST } from '../../schema';
 export async function post(req, res) {
   try {
     const posts = database.getCollection('posts');
-    let post = await POST.validate(req.body);
+    let postToAdd = await POST.validate(req.body);
 
-    post.id = faker.random.uuid();
+    postToAdd.id = faker.random.uuid();
 
-    posts.insert(post);
+    posts.insert(postToAdd);
 
-    return res.json(post);
+    return res.json(postToAdd);
   } catch (e) {
     console.warn(e);
     return res.status(400).json({
