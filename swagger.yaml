@@ -1,0 +1,30 @@
+openapi: 3.0.1
+info:
+  title: GraphQL REST Backend
+  version: 1.0.0
+
+paths:
+  /posts:
+    get:
+      summary: GET all posts
+      description: Pull all posts in the database
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: Limit to specific number of posts
+        - in: query
+          name: start
+          schema:
+            type: integer
+          description: Start at a certain index
+      responses:
+        '200':
+          description: Success
+    post:
+      summary: Add a new post
+      description: Add a new post to the posts database
+      responses:
+        '200':
+          description: Success
